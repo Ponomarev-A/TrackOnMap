@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TrackOnMap</string>
+
+    <string name="title_activity_maps">TrackOnMap</string>
+
+    <string name="action_infoTrack" translatable="true">Info about track</string>
+</resources>
