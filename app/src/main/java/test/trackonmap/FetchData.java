@@ -6,7 +6,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Fetch data from JSON file class
@@ -15,7 +14,7 @@ public class FetchData {
 
     private static final String LOG_TAG = FetchData.class.getSimpleName();
 
-    public static List<Track> getDataFromJson(String jsonStr) {
+    public static Track getTrackFromJson(String jsonStr) {
 
         // General tracks information
         final String OWM_STATE = "state";
@@ -38,17 +37,13 @@ public class FetchData {
         final String OWM_DATE = "date";
         final String OWM_SPEED = "speed";
 
-        ArrayList<Track> tracks = new ArrayList<>();
-
         try {
             JSONObject trackArrayJson = new JSONObject(jsonStr);
-            JSONArray trackArray = trackArrayJson.getJSONArray(OWM_DATA);
+            JSONObject trackJson = trackArrayJson.getJSONArray(OWM_DATA).getJSONObject(0);
 
-            for (int i = 0; i < trackArray.length(); i++) {
-                JSONObject trackJson = trackArray.getJSONObject(i);
 
-                long startTime = trackJson.getLong(OWM_START);
-                long endTime = trackJson.getLong(OWM_END);
+                long startTime = trackJson.getLong(OWM_START) * 1000;   // convert to Ms
+                long endTime = trackJson.getLong(OWM_END) * 1000;
                 int length = trackJson.getInt(OWM_LENGTH);
                 int count = trackJson.getInt(OWM_COUNT);
                 int max_speed = trackJson.getInt(OWM_MAX_SPEED);
@@ -68,17 +63,17 @@ public class FetchData {
                     points.add(new TrackPoint(latitude, longitude, date, speed));
                 }
 
-                tracks.add(new Track(startTime, endTime, length, count, max_speed, points));
-            }
+            Track track = new Track(startTime, endTime, length, count, max_speed, points);
+            Log.d(LOG_TAG, "Fetch data form JSON complete. " + track.getCount() + " track points inserted");
 
-            Log.d(LOG_TAG, "Fetch data form JSON complete. " + tracks.size() + " track(s) inserted");
+            return track;
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage(), e);
             e.printStackTrace();
         }
 
-        return tracks;
+        return null;
     }
 
 

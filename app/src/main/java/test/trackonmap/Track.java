@@ -35,7 +35,7 @@ public class Track {
         return length;
     }
 
-    public int getMax_speed() {
+    public int getMaxSpeed() {
         return max_speed;
     }
 
