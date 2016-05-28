@@ -71,7 +71,7 @@ public class FetchData {
                 tracks.add(new Track(startTime, endTime, length, count, max_speed, points));
             }
 
-            Log.d(LOG_TAG, "Fetch data form JSON complete. " + tracks.size() + "tracks inserted");
+            Log.d(LOG_TAG, "Fetch data form JSON complete. " + tracks.size() + " track(s) inserted");
             return tracks;
 
         } catch (JSONException e) {
