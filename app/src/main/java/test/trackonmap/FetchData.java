@@ -38,11 +38,11 @@ public class FetchData {
         final String OWM_DATE = "date";
         final String OWM_SPEED = "speed";
 
+        ArrayList<Track> tracks = new ArrayList<>();
+
         try {
             JSONObject trackArrayJson = new JSONObject(jsonStr);
             JSONArray trackArray = trackArrayJson.getJSONArray(OWM_DATA);
-
-            ArrayList<Track> tracks = new ArrayList<>();
 
             for (int i = 0; i < trackArray.length(); i++) {
                 JSONObject trackJson = trackArray.getJSONObject(i);
@@ -72,14 +72,13 @@ public class FetchData {
             }
 
             Log.d(LOG_TAG, "Fetch data form JSON complete. " + tracks.size() + " track(s) inserted");
-            return tracks;
 
         } catch (JSONException e) {
             Log.e(LOG_TAG, e.getMessage(), e);
             e.printStackTrace();
         }
 
-        return null;
+        return tracks;
     }
 
 

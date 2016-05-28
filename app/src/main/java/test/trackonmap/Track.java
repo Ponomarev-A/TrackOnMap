@@ -22,4 +22,28 @@ public class Track {
         this.max_speed = max_speed;
         this.points = points;
     }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public long getEndTime() {
+        return endTime;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getMax_speed() {
+        return max_speed;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public List<TrackPoint> getPoints() {
+        return points;
+    }
 }
