@@ -5,22 +5,13 @@
 
     <string name="title_activity_maps" translatable="false">TrackOnMap</string>
 
-    <string name="action_infoTrack">Info about track</string>
+    <string name="action_infoTrack" translatable="true">Info about track</string>
 
-    <string name="dialog_title">Track information</string>
-    <string name="dialog_button_title">Close</string>
-    <string name="format_info_track">
-        Length:
-        <xliff:g id="length">%1$.1f</xliff:g>
-        km
-        \nMax speed:
-        <xliff:g id="max_speed">%2$d</xliff:g>
-        km/h
-        \nDate:
-        <xliff:g id="date">%3$s</xliff:g>
-        :
-        <xliff:g id="start_time">%4$s</xliff:g>
-        -
+    <string name="dialog_title" translatable="true">Track information</string>
+    <string name="dialog_button_title" translatable="true">Close</string>
+    <string name="format_info_track" translatable="true">Length:<xliff:g id="length">%1$.1f</xliff:g>km
+        \nMax speed:<xliff:g id="max_speed">%2$d</xliff:g>km/h
+        \nDate:<xliff:g id="date">%3$s</xliff:g>:<xliff:g id="start_time">%4$s</xliff:g>-
         <xliff:g id="end_time">%5$s</xliff:g>
     </string>
 </resources>

@@ -1,11 +1,12 @@
 package test.trackonmap;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Track information class
  */
-public class Track {
+public class Track implements Serializable {
     private final long startTime;
     private final long endTime;
     private final int length;
